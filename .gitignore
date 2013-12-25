@@ -20,3 +20,6 @@ target/
 
 war/WEB-INF/appengine-generated/
 war/WEB-INF/classes/
+src/META-INF/
+
+log4j.properties
