@@ -1,0 +1,87 @@
+// TV2
+http://tv2.dk/rss/seneste.xml
+http://tv2.dk/rss/breaking.xml
+http://rss.tv2.dk/rss/show/site/finans.tv2.dk/feed/Alle+finansnyheder/index.xml
+http://rss.tv2.dk/rss/show/site/vejret.tv2.dk/feed/TV+2+Vejret/index.xml
+http://nyhederne.tv2.dk/rss.xml
+http://sporten.tv2.dk/rss.xml
+http://beep.tv2.dk/rss.xml.php/index.xml
+http://go.tv2.dk/rss.xml
+http://fri.tv2.dk/rss.xml
+
+// DR
+http://www.dr.dk/Nyheder/Service/feeds/Allenyheder
+http://www.dr.dk/Nyheder/Service/feeds/Indland
+http://www.dr.dk/Nyheder/Service/feeds/Udland
+http://www.dr.dk/Nyheder/Service/feeds/Politik
+http://www.dr.dk/Nyheder/Service/feeds/Kultur
+http://www.dr.dk/Nyheder/Service/feeds/Levnu
+http://www.dr.dk/Nyheder/Service/feeds/Viden
+http://www.dr.dk/Nyheder/Service/feeds/Sporten
+http://www.dr.dk/Nyheder/Service/feeds/regionale/kbh/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/bornholm/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/syd/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/fyn/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/vest/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/nord/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/trekanten/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/sjaelland/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/oestjylland/
+http://www.dr.dk/Nyheder/Service/feeds/regionale/esbjerg/
+
+// EB
+http://ekstrabladet.dk/rss2/?mode=normal&submode=nyheder
+http://ekstrabladet.dk/rss2/?mode=normal&submode=sport
+http://ekstrabladet.dk/rss2/?mode=normal&submode=flash
+http://ekstrabladet.dk/rss2/?mode=normal&submode=112
+http://ekstrabladet.dk/rss2/?mode=normal&submode=musik
+http://ekstrabladet.dk/rss2/?mode=normal&submode=kendte
+http://ekstrabladet.dk/rss2/?mode=normal&submode=film
+http://ekstrabladet.dk/rss2/?mode=normal&submode=tv
+http://ekstrabladet.dk/rss2/?mode=normal&submode=kultur_underholdning
+http://ekstrabladet.dk/rss2/?mode=normal&submode=poker
+http://ekstrabladet.dk/rss2/?mode=normal&submode=forbrug
+http://ekstrabladet.dk/rss2/?mode=normal&submode=sex_og_samliv
+http://ekstrabladet.dk/rss2/?mode=normal&submode=vrangen
+http://ekstrabladet.dk/rss2/?mode=normal&submode=ferie
+http://ekstrabladet.dk/rss2/?mode=normal&submode=biler
+
+// B
+http://www.b.dk/nodequeue/383/rss
+http://www.b.dk/breaking/rss
+http://www.b.dk/seneste/rss
+http://www.b.dk/nodequeue/264/rss
+http://www.b.dk/feeds/rss/Nationalt
+http://www.b.dk/feeds/rss/Globalt
+http://www.b.dk/feeds/rss/Politiko
+http://www.b.dk/nodequeue/1598/rss
+http://www.b.dk/feeds/rss/Tech
+http://www.b.dk/feeds/rss/Viden
+http://www.b.dk/feeds/rss/Kultur
+http://www.b.dk/nodequeue/4985/rss
+http://www.b.dk/feeds/rss/Berlingske%20Mener
+
+// BT
+http://www.bt.dk/bt/seneste/rss
+http://www.bt.dk/nyheder/seneste/rss
+http://www.bt.dk/underholdning/seneste/rss
+http://www.bt.dk/forbrug/seneste/rss
+http://www.bt.dk/sundhed/seneste/rss
+http://www.bt.dk/krimi/seneste/rss
+http://www.bt.dk/politik/seneste/rss
+http://www.bt.dk/musik/seneste/rss
+http://www.bt.dk/utroligt/seneste/rss
+http://www.bt.dk/biler/seneste/rss
+http://www.bt.dk/digital/seneste/rss
+
+// JP
+http://jyllands-posten.dk/?service=rssfeed&mode=top
+http://jyllands-posten.dk/index.jsp?service=rssfeed&submode=breakingnews
+http://jyllands-posten.dk/index.jsp?service=rssfeed&submode=seneste
+http://jyllands-posten.dk/indland/?service=rssfeed
+
+// POL
+http://politiken.dk/rss/senestenyt.rss
+
+// Information
+http://www.information.dk/feed

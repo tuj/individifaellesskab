@@ -1,0 +1,22 @@
+# ignore all bin directories
+# matches "bin" in any subfolder
+bin/
+
+# ignore all target directories
+target/
+
+# ignore all files ending with ~
+*~ 
+
+*.class
+
+.classpath
+.settings/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+war/WEB-INF/appengine-generated/
+war/WEB-INF/classes/
