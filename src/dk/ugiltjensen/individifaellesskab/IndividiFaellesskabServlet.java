@@ -56,7 +56,7 @@ public class IndividiFaellesskabServlet extends HttpServlet {
 		String sReq = req.getRequestURI();
 		if (sReq.endsWith("/recache")) {
 			String cronHeader = req.getHeader("X-AppEngine-Cron");
-			if (cronHeader == null || cronHeader != "true") {
+			if (cronHeader == null || !cronHeader.equals("true")) {
 				log.warning("recache invoked by non-cron");
 				return;
 			}
