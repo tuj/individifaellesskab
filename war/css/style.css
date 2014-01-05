@@ -3,6 +3,15 @@ body {
 	font-size: medium;
 }
 
+.centerdiv {
+	max-width: 1000px;
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}
+
 .toptext {
 	margin: 30px;
 	padding: 20px;
