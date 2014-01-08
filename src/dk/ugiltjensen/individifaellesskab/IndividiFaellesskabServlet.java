@@ -30,11 +30,13 @@ import java.util.logging.Logger;
 
 @SuppressWarnings("serial")
 public class IndividiFaellesskabServlet extends HttpServlet {
-	private static final String toptext = "På denne side finder du to digte under udarbejdelse. Digtene bliver skrevet fortløbende af et kollektiv bestående af netjournalister hos dr.dk, tv2.dk, eb.dk, b.dk, bt.dk, jp.dk, information.dk og pol.dk. Digtene bliver redigeret af en robot. Robotten opsamler alle sidernes overskrifter, der starter med \"Vi\" og \"Jeg\". Disse overskrifter sætter den sammen til to digte. Digtene vil således blive længere, så længe de respektive sider bliver ved med at fodre robotten med overskrifter. Digtene opdateres hver time med de linjer, som de respektive nyhedskanaler har produceret i mellemtiden. Eneste redigeringsfrihed, robotten tager sig, er at fjerne alt hvad der måtte stå før et kolon, så vi'et og jeg'et bliver isoleret fra deres oprindelige afsendere og således kommer til at fremstå som fællessubjekter. Skulle man ønske at efterprøve linjernes autenticitet, så kan man holde musen over en linje for at se kilden. Vi takker den danske journaliststand for deres poetiske udladninger og glæder os til at følge deres fortsatte afsøgning af begreberne: individ og fællesskab.";	
+	private static final String toptext = "På denne side finder du to digte under udarbejdelse. Digtene bliver skrevet fortløbende af et kollektiv bestående af netjournalister hos dr.dk, tv2.dk, eb.dk, b.dk, bt.dk, jp.dk, information.dk og pol.dk. Digtene bliver redigeret af en robot. Robotten opsamler alle sidernes overskrifter (minus sport), der starter med \"Vi\" og \"Jeg\". Disse overskrifter sætter den sammen til to digte. Digtene vil således blive længere, så længe de respektive sider bliver ved med at fodre robotten med overskrifter. Digtene opdateres hver time med de linjer, som de respektive nyhedskanaler har produceret i mellemtiden. Eneste redigeringsfrihed, robotten tager sig, er at fjerne alt hvad der måtte stå før et kolon, så vi'et og jeg'et bliver isoleret fra deres oprindelige afsendere og således kommer til at fremstå som fællessubjekter. Skulle man ønske at efterprøve linjernes autenticitet, så kan man holde musen over en linje for at se kilden. Vi takker den danske journaliststand for deres poetiske udladninger og glæder os til at følge deres fortsatte afsøgning af begreberne: individ og fællesskab.";	
 	private static final String titeltext = "individ i fællesskab";
 	private static final String bytext =  "- Christoffer Ugilt Jensen og Troels Ugilt Jensen";
     private static final Logger log = Logger.getLogger(IndividiFaellesskabServlet.class.getName());
-
+    private static String[] blacklistedLinkWords = {"sport", "fodbold", "superligaen", "ishockey", "haandbold", "tennis", "formel-1", "golf", "boksning"};
+    
+    
 	private List<Item> weItems;
 	private List<Item> iItems;
 	
@@ -126,9 +128,19 @@ public class IndividiFaellesskabServlet extends HttpServlet {
 	    List<Entity> pq = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 	    for (Entity e : pq) {
 	    	String s = (String)e.getProperty("title");
+	    	String l = (String)e.getProperty("link");
 	    	if (!weList.contains(s)) {
+	    		boolean bailOut = false;
+	    		for (String blacklistWord : blacklistedLinkWords) {
+	    			if (l.toLowerCase().contains(blacklistWord.toLowerCase())) {
+	    				bailOut = true;
+	    			}
+	    		}
+	    		if (bailOut) {
+	    			continue;
+	    		}
 	    		weList.add(s);
-	    		weItems.add(new Item(s, (String)e.getProperty("link"), (String)e.getProperty("date")));
+	    		weItems.add(new Item(s, l, (String)e.getProperty("date")));
 	    	}
 	    }
 	    
@@ -136,9 +148,19 @@ public class IndividiFaellesskabServlet extends HttpServlet {
 	    pq = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 	    for (Entity e : pq) {
 	    	String s = (String)e.getProperty("title");
+	    	String l = (String)e.getProperty("link");
 	    	if (!iList.contains(s)) {
+	    		boolean bailOut = false;
+	    		for (String blacklistWord : blacklistedLinkWords) {
+	    			if (l.toLowerCase().contains(blacklistWord.toLowerCase())) {
+	    				bailOut = true;
+	    			}
+	    		}
+	    		if (bailOut) {
+	    			continue;
+	    		}
 	    		iList.add(s);
-		    	iItems.add(new Item(s, (String)e.getProperty("link"), (String)e.getProperty("date")));
+		    	iItems.add(new Item(s, l, (String)e.getProperty("date")));
 	    	}
 	    }		
 	}
@@ -189,13 +211,26 @@ public class IndividiFaellesskabServlet extends HttpServlet {
 				Element title = e.getChild("title");
 				Element link = e.getChild("link");
 				Element date = e.getChild("pubDate");
-				String sTitle = "";
-				if (title == null)
+				if (title == null || link == null)
 					continue;
+
+				String sTitle = "";
 				sTitle = title.getValue().trim();
 				String sLink = "";
-				if (link != null)
-					sLink = link.getValue().trim();
+				sLink = link.getValue().trim();
+				
+				// bail out if link contains a blacklisted word
+				/*boolean bailOut = false;
+				for (String blackListedWord : blacklistedLinkWords) {
+					if (sLink.toLowerCase().contains(blackListedWord.toLowerCase())) {
+						bailOut = true;
+						break;
+					}
+				}
+				if (bailOut) {
+					continue;
+				}*/
+				
 				String sDate = "";
 				if (sDate != null)
 					sDate = date.getValue().trim();
